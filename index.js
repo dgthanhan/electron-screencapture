@@ -17,7 +17,7 @@ const getStream = sourceId => {
       }
 
       const display = getDisplay(sourceId);
-      const displayIndex = findIndex(electron.screen.getAllDisplays(), item => item.id === sourceId);
+      const displayIndex = findIndex(electron.remote.screen.getAllDisplays(), item => item.id === sourceId);
 
       navigator.webkitGetUserMedia({
         audio: false,
@@ -63,7 +63,7 @@ const getFrameImage = canvas => {
 };
 
 const getDisplay = id => {
-  return find(electron.screen.getAllDisplays(), item => item.id === id);
+  return find(electron.remote.screen.getAllDisplays(), item => item.id === id);
 };
 
 const getLoop = fn => {
